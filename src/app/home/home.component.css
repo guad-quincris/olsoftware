@@ -1,0 +1,39 @@
+
+  .home {
+    min-height: 1100px;
+    min-width: 700px;
+    background: rgba(255, 255, 255, 0) 100%;
+    background-size: cover;
+
+    background-image: url("/assets/img/fondo.jpg");
+
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+  }
+  .home-contain{
+    min-height: 1100px;
+    min-width: 700px;
+  }
+
+  .tex1{
+      position: fixed;
+      top:30%;
+      left: 20%;
+      color: white;
+      font-size: 50px;
+  }
+
+  .loginn{
+    top: 40%;
+    right: 12%;
+    width: 300px;
+    height: 370px;
+    background-color: white;
+    position:absolute ;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
