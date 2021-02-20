@@ -1,1 +1,43 @@
-<p>webapp works!</p>
+<section>
+  <h1>Usuarios Existentes</h1>
+  <div class="container">
+    <div class="interior">
+      <a class="btn" (click)="newUser()">Crear</a>
+    </div>
+  </div>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border ="0">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Identificacion cc.</th>
+          <th>Rol</th>
+          <th>Estado</th>
+          <th>Telefono</th>
+          <th>Correo</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content-user">
+    <table cellpadding="0" cellspacing="0" border ="0">
+      <tbody>
+        <tr *ngFor="let user of (users$ |async)">
+          <th>{{user.name}}</th>
+          <th>{{user.lastName}}</th>
+          <th>{{user.id}}</th>
+          <th>{{user.rol}}</th>
+          <th>{{user.state}}</th>
+          <th>{{user.number}}</th>
+          <th>{{user.email}}</th>
+          <th>
+            <button class="submit" (click)="editUser(user)">edit</button>
+            <button class="submit" (click)="deleteUser(user)">delete</button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<app-modal-user *ngIf="showModal" (closeDialog)="closeDialog()" [user]="selectedUser"></app-modal-user>

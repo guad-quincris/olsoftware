@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
   open(){
-    this.router.navigate(["/choose-interest/archetype"]);
+    this.router.navigate(["/web"]);
   }
 
 }

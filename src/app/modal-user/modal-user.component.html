@@ -6,41 +6,41 @@
       <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit(userForm)">
         <div class="form-group">
           <label for="name">Nombre</label>
-          <input type="text" class="form-control" name="name" ngModel="user?.name" ngModel required/>
+          <input type="text" class="form-control" name="name" [ngModel]="user?.name" ngModel required/>
         </div>
 
         <div class="form-group">
           <label for="lastName">Nombre</label>
-          <input type="text" class="form-control" name="lastName" ngModel="user?.lastName" ngModel required/>
+          <input type="text" class="form-control" name="lastName" [ngModel]="user?.lastName" ngModel required/>
         </div>
 
         <div class="form-group">
           <label for="id">Nombre</label>
-          <input type="text" class="form-control" name="id" ngModel="user?.id" ngModel required/>
+          <input type="text" class="form-control" name="id" [ngModel]="user?.id" ngModel required/>
         </div>
 
         <div class="form-group">
           <label for="rol">Nombre</label>
-          <select  class="form-control" name="rol" ngModel="user?.rol" ngModel required>
+          <select  class="form-control" name="rol" [ngModel]="user?.rol" ngModel required>
             <option  *ngFor="let rol of rol"  [value]="rol.key">{{rol.label}}</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="state">Nombre</label>
-          <select  class="form-control" name="state" ngModel="user?.state" ngModel required>
+          <select  class="form-control" name="state" [ngModel]="user?.state" ngModel required>
             <option  *ngFor="let state of state"  [value]="state.key">{{state.label}}</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="number">Nombre</label>
-          <input type="text" class="form-control" name="number" ngModel="user?.number" ngModel required/>
+          <input type="text" class="form-control" name="number" [ngModel]="user?.number" ngModel required/>
         </div>
 
         <div class="form-group">
           <label for="email">Nombre</label>
-          <input type="text" class="form-control" name="email" ngModel="user?.email" ngModel required/>
+          <input type="text" class="form-control" name="email" [ngModel]="user?.email" ngModel required/>
         </div>
 
       </form>

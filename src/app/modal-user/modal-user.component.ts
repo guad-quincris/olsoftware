@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Rol, State } from '../interfaces/usuario';
+import { Rol, State, Usuario } from '../interfaces/usuario';
 import { UsersService } from '../services/users.service';
 
 
@@ -11,6 +11,8 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./modal-user.component.css']
 })
 export class ModalUserComponent implements OnInit {
+  @Input() user: Usuario;
+  @Output() closeDialog: EventEmitter<boolean> = new EventEmitter();
 
   public rol = Object.keys(Rol)
     .slice(Object.keys(Rol).length/2)
@@ -34,11 +36,17 @@ export class ModalUserComponent implements OnInit {
 
   private newUser(userFormValue){
     const key = this.userService.addUser(userFormValue).key;
-    const playerFormValueKey = {
+    const userFormValueKey = {
       ...userFormValue,
       key
     }
   }
+
+  private editUser(userFormValue){
+    const userFormValueWithKey = {...userFormValue, $key: this.user.$key};
+    const userFormValueWithFormattedKey = {...userFormValue, key: this.user.$key};
+    delete userFormValueWithFormattedKey.$key;
+  };
 
   onSubmit(userForm: NgForm){
     const userFormValue = {... userForm.value} ;
@@ -50,6 +58,10 @@ export class ModalUserComponent implements OnInit {
     }
     this.newUser(userFormValue);
     window.location.replace('#');
+  }
+
+  onClose(){
+    this.closeDialog.emit(true);
   }
 
 }

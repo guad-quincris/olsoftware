@@ -1,4 +1,4 @@
-export interface Usario {
+export interface Usuario {
   $key?: string;
   name: string;
   lastName: string;
